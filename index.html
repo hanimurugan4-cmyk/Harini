@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harini | Portfolio</title>
+<meta name="description" content="Harini, first-year B.Tech IT student. Portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#0c3d3b;      /* the room */
+  --teal-2:#082b2a;    /* the dark between frames */
+  --yellow:#f2b632;    /* the marquee bulb */
+  --paper:#eef1e8;     /* projector white */
+  --soft:#a9c2bb;      /* quiet text on teal */
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --serif:"Bodoni Moda","Didot",Georgia,serif;
+  --mono:"Courier Prime","Courier New",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--teal);color:var(--paper);font-family:var(--mono);font-size:17px;line-height:1.65;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
+
+/* ---------- opening titles ---------- */
+#intro{position:fixed;inset:0;z-index:100;pointer-events:all}
+#intro .half{position:absolute;left:0;right:0;height:50%;background:var(--teal-2);transition:transform .75s var(--ease)}
+#intro .top{top:0}#intro .bot{bottom:0}
+#intro.open .top{transform:translateY(-101%)}
+#intro.open .bot{transform:translateY(101%)}
+#intro .credits{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:0 20px;transition:opacity .3s}
+#intro.open .credits{opacity:0}
+#intro .rule{position:absolute;left:0;right:0;top:50%;height:2px;background:var(--yellow);transform:scaleX(0);animation:rule .5s var(--ease) .05s forwards}
+@keyframes rule{to{transform:scaleX(1)}}
+.credits p{opacity:0;animation:fadeIn .45s var(--ease) forwards}
+.credits .c1{font-size:15px;letter-spacing:.3em;color:var(--soft);animation-delay:.35s;transform:translateY(-34px)}
+.credits .c2{font-family:var(--serif);font-weight:900;font-size:clamp(56px,19vw,150px);line-height:1;color:var(--paper);animation-delay:.7s}
+.credits .c3{font-style:italic;color:var(--yellow);animation-delay:1.1s;transform:translateY(34px)}
+@keyframes fadeIn{to{opacity:1}}
+#skip{position:absolute;right:16px;bottom:16px;z-index:2;background:none;border:1.5px solid var(--soft);color:var(--paper);font:inherit;font-size:15px;padding:8px 16px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+#skip:hover{background:var(--yellow);color:var(--teal-2);border-color:var(--yellow)}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;position:relative}
+.lbar{background:var(--teal-2);height:clamp(36px,7vh,64px);display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:14px;color:var(--soft)}
+.lbar .rec{display:inline-flex;align-items:center;gap:8px}
+.lbar .rec i{width:9px;height:9px;border-radius:50%;background:var(--yellow);animation:blink 1.6s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.hero-body{flex:1;display:grid;align-content:center;padding:36px 0 44px;position:relative}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(64px,21vw,248px);line-height:.88;letter-spacing:-.02em}
+.mono-wrap{position:absolute;right:-12px;top:6px;width:clamp(96px,26vw,230px);transform:rotate(8deg)}
+.mono-wrap svg{width:100%;height:auto;display:block;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tag{font-family:var(--serif);font-style:italic;font-size:clamp(22px,4.6vw,38px);line-height:1.25;max-width:20ch;margin-top:28px}
+.now{margin-top:18px;color:var(--soft);max-width:38ch}
+.now b{color:var(--yellow);font-weight:700}
+.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.btn{font:inherit;font-weight:700;text-decoration:none;padding:13px 26px;border:2px solid var(--yellow);color:var(--paper);position:relative;transition:transform .25s var(--ease),background .25s,color .25s;
+  clip-path:polygon(0 0,calc(100% - 0px) 0,100% 0,100% 100%,0 100%)}
+.btn.main{background:var(--yellow);color:var(--teal-2)}
+.btn{-webkit-mask:radial-gradient(circle 7px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 7px at 0 50%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 7px at 100% 50%,#0000 98%,#000) right/51% 100% no-repeat}
+.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.btn:not(.main):hover{background:var(--yellow);color:var(--teal-2)}
+
+/* ---------- marquee ribbon (signature) ---------- */
+.ribbon-wrap{overflow:hidden;padding:34px 0;background:var(--teal)}
+.ribbon{background:var(--yellow);color:var(--teal-2);transform:rotate(-2.2deg);margin:0 -20px;padding:14px 0;border-block:3px solid var(--teal-2);box-shadow:0 0 0 3px var(--yellow)}
+.track{display:flex;width:max-content;animation:run 38s linear infinite}
+.ribbon:hover .track{animation-play-state:paused}
+.track span{font-family:var(--serif);font-weight:700;font-style:italic;font-size:clamp(24px,5vw,40px);white-space:nowrap;padding:0 22px;display:flex;align-items:center;gap:44px}
+.track span::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--teal-2)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* ---------- sections ---------- */
+section{padding:clamp(64px,11vw,140px) 0}
+.scene{font-size:14px;color:var(--soft);margin-bottom:10px}
+h2{font-family:var(--serif);font-weight:900;font-size:clamp(40px,9vw,104px);line-height:.95;letter-spacing:-.015em}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* about */
+.about-grid{display:grid;gap:34px;margin-top:34px}
+.about p{max-width:60ch}
+.about p+p{margin-top:1.1em}
+.about .first::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:4.6em;line-height:.8;padding:6px 12px 0 0;color:var(--yellow)}
+.pull{font-family:var(--serif);font-style:italic;font-size:clamp(24px,4vw,34px);line-height:1.25;border-left:4px solid var(--yellow);padding-left:20px;align-self:start}
+@media(min-width:820px){.about-grid{grid-template-columns:1.5fr 1fr;gap:80px}.pull{margin-top:60px}}
+
+/* skills: a cast list */
+.skills{background:var(--teal-2)}
+.cast{margin-top:36px;max-width:820px}
+.cast li{list-style:none;display:flex;align-items:baseline;gap:10px;padding:14px 0}
+.cast .n{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3.6vw,30px)}
+.cast .dots{flex:1;border-bottom:2px dotted var(--soft);opacity:.5;transform:translateY(-5px);min-width:16px}
+.cast .lvl{font-style:italic;color:var(--yellow);text-align:right}
+.cast .grp{display:block;margin:34px 0 4px;color:var(--soft);font-size:15px}
+.cast .grp:first-child{margin-top:0}
+
+/* journey: a film strip */
+.strip-hint{margin-top:14px;color:var(--soft)}
+.strip{margin-top:34px;display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 20px;background:var(--teal-2);
+  background-image:repeating-linear-gradient(90deg,var(--teal) 0 14px,transparent 14px 30px),repeating-linear-gradient(90deg,var(--teal) 0 14px,transparent 14px 30px);
+  background-size:100% 12px,100% 12px;background-position:0 9px,0 calc(100% - 9px);background-repeat:no-repeat;scrollbar-color:var(--yellow) var(--teal-2)}
+.frame{flex:0 0 min(82vw,380px);scroll-snap-align:center;margin-right:18px;background:var(--paper);color:var(--teal-2);padding:26px 24px 30px;min-height:360px;display:flex;flex-direction:column;transition:transform .4s var(--ease)}
+.frame:nth-child(2){margin-top:26px}
+.frame:nth-child(3){background:var(--yellow)}
+.frame:hover{transform:rotate(-1deg) translateY(-4px)}
+.frame h3{font-family:var(--serif);font-weight:900;font-size:34px;line-height:1;margin-bottom:14px}
+.frame p{font-size:16px}
+.frame p+p{margin-top:.8em}
+.frame .big{font-family:var(--serif);font-style:italic;font-size:21px;margin-top:auto;padding-top:20px;line-height:1.25}
+
+/* beyond code */
+.facts{display:grid;gap:0;margin-top:40px;max-width:900px}
+.fact{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;padding:22px 0;border-top:2px solid var(--soft)}
+.fact:last-child{border-bottom:2px solid var(--soft)}
+.fact h3{font-family:var(--serif);font-weight:700;font-size:clamp(24px,4vw,34px);grid-column:1/-1;line-height:1.1}
+.fact p{grid-column:1/-1;max-width:58ch}
+.fact i{color:var(--yellow)}
+.edit{background:var(--yellow);color:var(--teal-2);padding:0 5px}
+
+/* contact: end credits */
+.end{background:var(--teal-2);text-align:left;overflow:hidden}
+.end h2{max-width:11ch}
+.roll{margin-top:40px;display:grid;gap:4px;max-width:640px}
+.roll a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;text-decoration:none;padding:16px 0;border-bottom:2px dotted var(--soft);transition:padding .3s var(--ease),color .2s}
+.roll a:hover{padding-left:14px;color:var(--yellow)}
+.roll .who{font-family:var(--serif);font-weight:700;font-size:clamp(22px,4vw,30px)}
+.roll .what{color:var(--soft);font-size:15px;text-align:right;overflow-wrap:anywhere}
+.the-end{margin-top:70px;font-family:var(--serif);font-style:italic;font-size:clamp(28px,6vw,56px)}
+.small{margin-top:10px;color:var(--soft);font-size:15px}
+
+/* easter egg */
+#clap{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:rgba(8,43,42,.92);padding:20px}
+#clap.on{display:grid}
+.board{width:min(86vw,420px);background:var(--paper);color:var(--teal-2);transform-origin:50% 0;animation:drop .6s var(--ease) both}
+@keyframes drop{from{transform:translateY(-120vh) rotate(-12deg)}}
+.arm{height:42px;background:repeating-linear-gradient(115deg,var(--teal-2) 0 26px,var(--paper) 26px 52px);transform-origin:0 100%;animation:snap .35s var(--ease) .7s both;border-bottom:3px solid var(--teal-2)}
+@keyframes snap{from{transform:rotate(-24deg)}to{transform:rotate(0)}}
+.board .sticks{height:30px;background:repeating-linear-gradient(115deg,var(--teal-2) 0 26px,var(--paper) 26px 52px);border-bottom:3px solid var(--teal-2)}
+.board .info{padding:18px 20px 22px}
+.board .info div{display:flex;justify-content:space-between;border-bottom:2px solid var(--teal-2);padding:6px 0;font-size:16px}
+.board .line{font-family:var(--serif);font-style:italic;font-size:22px;margin-top:16px;line-height:1.25}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+  .track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Opening titles: plays once, under 2.5s -->
+<div id="intro" aria-hidden="false">
+  <div class="half top"></div><div class="half bot"></div>
+  <div class="rule"></div>
+  <div class="credits">
+    <p class="c1">a portfolio by</p>
+    <p class="c2">Harini</p>
+    <p class="c3">first year, B.Tech IT</p>
+  </div>
+  <button id="skip" type="button">Skip</button>
+</div>
+
+<header class="hero" id="top">
+  <div class="lbar"><span class="rec"><i></i>Reel one</span><span id="tc">00:00:00</span></div>
+  <div class="wrap hero-body">
+    <div class="mono-wrap" aria-hidden="true">
+      <!-- monogram: a film reel with her initial -->
+      <svg viewBox="0 0 200 200" role="img" aria-label="Monogram: H">
+        <circle cx="100" cy="100" r="96" fill="#f2b632"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="#082b2a" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/>
+        <circle cx="100" cy="100" r="72" fill="#082b2a"/>
+        <g fill="#f2b632"><circle cx="100" cy="36" r="9"/><circle cx="156" cy="68" r="9"/><circle cx="156" cy="132" r="9"/><circle cx="100" cy="164" r="9"/><circle cx="44" cy="132" r="9"/><circle cx="44" cy="68" r="9"/></g>
+        <circle cx="100" cy="100" r="40" fill="#eef1e8"/>
+        <text x="100" y="118" text-anchor="middle" font-family="Bodoni Moda,Didot,Georgia,serif" font-weight="900" font-size="54" fill="#082b2a">H</text>
+      </svg>
+    </div>
+    <h1>Harini</h1>
+    <p class="tag">I like taking things apart to see how they run.</p>
+    <p class="now"><b>Currently:</b> learning how the web works by building things that break first.</p>
+    <div class="btns">
+      <a class="btn main" href="#about">Explore</a>
+      <a class="btn" href="#contact">Say hi</a>
+    </div>
+  </div>
+  <div class="lbar"><span>Scroll to roll the film</span><span>Harini, year one</span></div>
+</header>
+
+<!-- Signature move: marquee ribbon of things she loves -->
+<div class="ribbon-wrap" aria-label="Things I love">
+  <div class="ribbon"><div class="track" id="track"></div></div>
+</div>
+
+<main>
+<section class="about" id="about">
+  <div class="wrap">
+    <p class="scene">Inside a hostel room, late evening</p>
+    <h2 class="reveal">The story so far</h2>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="first">I'm Harini, and I'm in the first year of B.Tech Information Technology. A few months ago I could only use computers. Now I'm learning to tell them what to do, and honestly, it's more fun than I expected.</p>
+        <p>Most of what I know so far came from a mix of classes, late-night tutorials and a lot of "why is this not working?" I'm still near the beginning, and I'm okay with that. Being new means everything is still interesting.</p>
+        <p>I like projects where I can see the result straight away, so a page that moves or a program that finally prints the right answer makes my whole day. <span class="edit">Edit this paragraph with your own story.</span></p>
+      </div>
+      <p class="pull reveal">Beginner is a good place to stand. You can see everything from here.</p>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="wrap">
+    <p class="scene">Cast and crew</p>
+    <h2 class="reveal">Who's in the cast</h2>
+    <ul class="cast reveal">
+      <span class="grp">Leading roles</span>
+      <li><span class="n">HTML and CSS</span><span class="dots"></span><span class="lvl">Comfortable</span></li>
+      <li><span class="n">C programming</span><span class="dots"></span><span class="lvl">Comfortable with the basics</span></li>
+      <span class="grp">Supporting roles</span>
+      <li><span class="n">Python</span><span class="dots"></span><span class="lvl">Learning</span></li>
+      <li><span class="n">JavaScript</span><span class="dots"></span><span class="lvl">Learning</span></li>
+      <li><span class="n">Git and GitHub</span><span class="dots"></span><span class="lvl">Learning</span></li>
+      <span class="grp">Just cast, first day on set</span>
+      <li><span class="n">Data structures</span><span class="dots"></span><span class="lvl">Just started</span></li>
+      <li><span class="n">Databases and SQL</span><span class="dots"></span><span class="lvl">Just started</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap">
+    <p class="scene">Three reels</p>
+    <h2 class="reveal">The journey</h2>
+    <p class="strip-hint reveal">Swipe the film strip.</p>
+  </div>
+  <div class="wrap" style="width:min(1100px,100%)">
+    <div class="strip" tabindex="0" aria-label="Journey film strip">
+      <article class="frame">
+        <h3>Made</h3>
+        <p>Lab programs that finally compiled, small practice pages in HTML and CSS, and this portfolio, which I built piece by piece.</p>
+        <p class="big">Every project starts as an error message.</p>
+      </article>
+      <article class="frame">
+        <h3>Learning</h3>
+        <p>Python, JavaScript and how data structures work under the hood. I'm also learning to read other people's code without panicking.</p>
+        <p class="big">Slowly, then suddenly.</p>
+      </article>
+      <article class="frame">
+        <h3>Want to build</h3>
+        <p>An app that people around me would actually use every day, and a website for something I care about. I'll figure out the rest as I go.</p>
+        <p class="big">The credits haven't rolled yet.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="beyond" style="background:var(--teal)">
+  <div class="wrap">
+    <p class="scene">Deleted scenes</p>
+    <h2 class="reveal">Beyond code</h2>
+    <div class="facts">
+      <div class="fact reveal"><h3>Things I do when the laptop is shut</h3><p><span class="edit">Edit: write your real hobbies here.</span> Music, drawing, long walks, a book you keep rereading, anything that is really you.</p></div>
+      <div class="fact reveal"><h3>A small fact about me</h3><p><span class="edit">Edit: add a fun fact only you would know.</span></p></div>
+      <div class="fact reveal"><h3>Something I'm bad at, on purpose</h3><p><span class="edit">Edit: something you're happily terrible at.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="end" id="contact">
+  <div class="wrap">
+    <p class="scene">End credits</p>
+    <h2 class="reveal">Let's make something.</h2>
+    <div class="roll reveal">
+      <a href="mailto:your.email@example.com"><span class="who">Email</span><span class="what">your.email@example.com</span></a>
+      <a href="https://www.linkedin.com/in/your-name" target="_blank" rel="noopener"><span class="who">LinkedIn</span><span class="what">linkedin.com/in/your-name</span></a>
+      <a href="https://github.com/your-username" target="_blank" rel="noopener"><span class="who">GitHub</span><span class="what">github.com/your-username</span></a>
+    </div>
+    <p class="the-end reveal">Directed by Harini.</p>
+    <p class="small">Thanks for watching all the way through.</p>
+  </div>
+</section>
+</main>
+
+<!-- Easter egg: type "action" -->
+<div id="clap" role="dialog" aria-label="Hidden clapperboard">
+  <div class="board">
+    <div class="arm"></div>
+    <div class="sticks"></div>
+    <div class="info">
+      <div><span>Film</span><span>Harini, a portfolio</span></div>
+      <div><span>Scene</span><span>You found it</span></div>
+      <div><span>Take</span><span>1</span></div>
+      <p class="line">Cut! Print it. Tap anywhere to get back to the film.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var intro = document.getElementById("intro");
+
+  /* things I love: edit this list */
+  var loves = ["Filter coffee","Rain on the window","Late-night debugging","Old Tamil film songs","A clean desk for ten minutes","Finally fixing the bug","New notebooks","Window seats"];
+  var track = document.getElementById("track");
+  var html = loves.map(function(t){return "<span>"+t+"</span>"}).join("");
+  track.innerHTML = html + html;
+
+  /* opening titles: once per visit, skippable */
+  var seen = false;
+  try{ seen = sessionStorage.getItem("introSeen") === "1"; }catch(e){}
+  function end(){
+    if(!intro || intro.dataset.done) return;
+    intro.dataset.done = "1";
+    intro.classList.add("open");
+    try{ sessionStorage.setItem("introSeen","1"); }catch(e){}
+    setTimeout(function(){ intro.style.display = "none"; }, 800);
+  }
+  if(reduce || seen){ intro.style.display = "none"; }
+  else{
+    document.body.style.overflow = "hidden";
+    var t = setTimeout(end, 1650);
+    document.getElementById("skip").addEventListener("click", function(){ clearTimeout(t); end(); });
+    setTimeout(function(){ document.body.style.overflow = ""; }, 1700);
+    document.getElementById("skip").addEventListener("click", function(){ document.body.style.overflow = ""; });
+  }
+
+  /* hero timecode */
+  var tc = document.getElementById("tc"), s = 0;
+  function pad(n){ return n < 10 ? "0"+n : ""+n; }
+  setInterval(function(){ s++; tc.textContent = "00:"+pad(Math.floor(s/60)%60)+":"+pad(s%60); }, 1000);
+
+  /* scroll reveals */
+  var els = document.querySelectorAll(".reveal");
+  if("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    },{threshold:.15});
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add("in"); }); }
+
+  /* easter egg */
+  var clap = document.getElementById("clap"), buf = "";
+  function show(){ clap.classList.add("on"); }
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){ clap.classList.remove("on"); return; }
+    if(e.key.length === 1){ buf = (buf + e.key.toLowerCase()).slice(-6); if(buf.indexOf("action") > -1){ buf = ""; show(); } }
+  });
+  clap.addEventListener("click", function(){ clap.classList.remove("on"); });
+  /* touch devices: tap the reel monogram 5 times */
+  var taps = 0, tt;
+  document.querySelector(".mono-wrap").addEventListener("click", function(){
+    taps++; clearTimeout(tt); tt = setTimeout(function(){ taps = 0; }, 1800);
+    if(taps >= 5){ taps = 0; show(); }
+  });
+  document.querySelector(".mono-wrap").style.pointerEvents = "auto";
+})();
+</script>
+</body>
+</html>
